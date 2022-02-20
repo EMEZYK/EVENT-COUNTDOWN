@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event count down</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700&display=swap&subset=latin-ext"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1 class="app-name">Event countdown</h1>
+    <div class="settings">
+      <h1>new event</h1>
+      <label for="event-name">Event name:</label>
+      <input type="text" id="event-name" />
+      <table class="date">
+        <tr>
+          <td><label for="event-day">Day:</label></td>
+          <td><label for="event-month">Month:</label></td>
+          <td><label for="event-year">Year:</label></td>
+        </tr>
+        <tr>
+          <td>
+            <input type="number" id="event-day" maxlength="2" value="1" />
+          </td>
+          <td>
+            <input type="number" id="event-month" maxlength="2" value="1" />
+          </td>
+          <td>
+            <input type="number" id="event-year" maxlength="4" value="2021" />
+          </td>
+        </tr>
+      </table>
+      <label for="event-image">Link to an image</label>
+      <input type="text" id="event-image"" />
+
+      <button class="save">Save</button>
+    </div>
+    <div class="event-wrapper">
+      <div class="settings-btn"><i class="fa fa-plus-square"></i></div>
+      </div>
+      <script src="app.js"></script>
+    </div>
+  </body>
+</html>
