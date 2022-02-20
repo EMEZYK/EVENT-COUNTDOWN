@@ -57,7 +57,6 @@ const renderEvent = (event) => {
 </div>
 `;
   containerApp.appendChild(newEvent);
-  settings.classList.toggle("active");
 
   const setTime = () => {
     const currentTime = new Date();
@@ -91,7 +90,7 @@ const refreshEvents = () => {
     const eventsArray = JSON.parse(savedEventsString);
     eventsArray.forEach((el) => {
       renderEvent(el);
-      if (el.eventId > eventID) {
+      if (el.eventId == eventID) {
         eventID = el.eventId + 1;
       }
     });
@@ -101,8 +100,6 @@ const refreshEvents = () => {
 refreshEvents();
 
 const createEvent = () => {
-  const currentIdx = eventID;
-
   const eventDay = document.querySelector("#event-day");
   const eventMonth = document.querySelector("#event-month");
   const eventYear = document.querySelector("#event-year");
