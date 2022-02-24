@@ -9,22 +9,24 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   font-family: "Montserrat", sans-serif;
   background: linear-gradient(#e66435, #9198e2);
 }
 .app-name {
-  font-size: clamp(2.2rem, 2vw, 1.2rem);
+  font-size: clamp(2.8rem, 2vw, 1.2rem);
   font-family: Arial, Helvetica, sans-serif;
   margin-top: 2rem;
   color: #fff;
+}
+.hide-title {
+  display: none;
 }
 
 .event-wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  height: 90vh;
   width: 100%;
   padding: 20px;
 }
@@ -171,4 +173,8 @@ input {
 .save {
   padding: 10px 20px;
   cursor: pointer;
+}
+
+.coming-date {
+  border: solid red;
 }

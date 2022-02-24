@@ -1,6 +1,7 @@
 const containerApp = document.querySelector(".event-wrapper");
 const settings = document.querySelector(".settings");
 const settingsBtn = document.querySelector(".settings-btn");
+const title = document.querySelector(".app-name");
 
 const eventName = document.querySelector("#event-name");
 const eventImage = document.querySelector("#event-image");
@@ -12,6 +13,7 @@ const dates = [];
 
 const showSettings = () => {
   settings.classList.toggle("active");
+  title.classList.toggle("hide-title");
 };
 
 const renderEvent = (event) => {
@@ -23,7 +25,6 @@ const renderEvent = (event) => {
   let hours;
   let minutes;
   let seconds;
-
   newEvent.innerHTML = `
 <div class="image-section" style='background-image: url("${event.eventImage}")'>
 <div class="delete-btn"  onclick="deleteEvent(${
@@ -67,7 +68,6 @@ const renderEvent = (event) => {
     hours = Math.floor(result / 1000 / 60 / 60) % 24;
     minutes = Math.floor(result / 1000 / 60) % 60;
     seconds = Math.floor(result / 1000) % 60;
-
     const daysCount = document.getElementById("day" + event.eventId);
     daysCount.innerHTML = days;
     const hoursCount = document.getElementById("hour" + event.eventId);
@@ -81,6 +81,10 @@ const renderEvent = (event) => {
   setInterval(setTime, 1000);
   eventImage.value = "";
   eventName.value = "";
+
+  if (days < 3) {
+    newEvent.classList.add("coming-date");
+  }
 };
 
 const refreshEvents = () => {
@@ -93,6 +97,7 @@ const refreshEvents = () => {
       if (el.eventId == eventID) {
         eventID = el.eventId + 1;
       }
+      eventsArray.sort((a, b) => a.eventYear - b.eventYear);
     });
   }
 };
@@ -123,6 +128,7 @@ const createEvent = () => {
   dates.push(usersTime);
   refreshEvents();
   settings.classList.remove("active");
+  title.classList.remove("hide-title");
 };
 
 const removeItemFromLS = (id) => {
